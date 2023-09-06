@@ -1,5 +1,10 @@
 # Mock Data for Tjek1
 
+## Install dependencies
+```
+npm i
+```
+
 ## Generate data
 ```
 node index.js
