@@ -1,5 +1,5 @@
 const jsf = require("json-schema-faker");
-const schema = require("./CPR.schema");
+const schema = require("./schemas/CPR.schema");
 const fs = require("fs");
 RandExp = require("randexp");
 const { faker } = require('@faker-js/faker');
