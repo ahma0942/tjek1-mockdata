@@ -1,10 +1,14 @@
 # Mock Data for Tjek1
 
 ## Generate data
-`node index.js`
+```
+node index.js
+```
 
 ## Run server
-`node server.js`
+```
+node server.js
+```
 
 ## Endpoints
 ```
