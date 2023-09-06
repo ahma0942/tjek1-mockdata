@@ -1,21 +1,21 @@
 # Mock Data for Tjek1
 
-## Install dependencies
+### Install dependencies
 ```
 npm i
 ```
 
-## Generate data
+### Generate data
 ```
 node index.js
 ```
 
-## Run server
+### Run server
 ```
 node server.js
 ```
 
-## Endpoints
+### Endpoints
 ```
 http://localhost:9000/CPR
 http://localhost:9000/CPR/CprPersonFullSimple/1/rest/PersonFullListSimple?pnr.personnummer.eq=xxxxxxxxxx
