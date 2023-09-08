@@ -107,6 +107,7 @@ module.exports = {
                       description: "EAID_dstE45817_FD1E_4a55_A20E_0A3EEBC580F0",
                     },
                   },
+                  required: ["Navn"],
                 },
               },
               UdrejseIndrejser: {
@@ -146,6 +147,8 @@ module.exports = {
               "statusdato",
               "statusdatoUsikkerhedsmarkering",
               "Personnumre",
+              "Adresseoplysninger",
+              "Navne",
             ],
           },
         },
@@ -866,7 +869,7 @@ module.exports = {
         },
       },
       additionalProperties: false,
-      required: ["status", "virkningFra", "virkningFraUsikkerhedsmarkering"],
+      required: ["status", "virkningFra", "virkningFraUsikkerhedsmarkering", "SupplerendeAdresse"],
     },
     AdresseoplysningerUdenSupplerendeAdresse: {
       title: "Adresseoplysninger",
@@ -1567,7 +1570,7 @@ module.exports = {
         },
       },
       additionalProperties: false,
-      required: ["virkningFra"],
+      required: ["virkningFra", "SimpelAdresse"],
     },
     SimpelAdresseoplysningUdenVirkningTil: {
       title: "SimpelAdresseoplysning",
@@ -1585,7 +1588,7 @@ module.exports = {
         },
       },
       additionalProperties: false,
-      required: ["virkningFra"],
+      required: ["virkningFra", "SimpelAdresse"],
     },
     SimpelAdresse: {
       title: "SimpelAdresse",
@@ -1618,6 +1621,7 @@ module.exports = {
         },
       },
       additionalProperties: false,
+      required: ["adresselinie1"],
     },
     Statsborgerskab: {
       title: "Statsborgerskab",
