@@ -869,7 +869,7 @@ module.exports = {
         },
       },
       additionalProperties: false,
-      required: ["status", "virkningFra", "virkningFraUsikkerhedsmarkering", "SupplerendeAdresse"],
+      required: ["CprAdresse", "status", "virkningFra", "virkningFraUsikkerhedsmarkering", "SupplerendeAdresse"],
     },
     AdresseoplysningerUdenSupplerendeAdresse: {
       title: "Adresseoplysninger",
@@ -942,6 +942,7 @@ module.exports = {
         },
       },
       additionalProperties: false,
+      required: ["CprAdresse", "status", "virkningFra", "virkningFraUsikkerhedsmarkering", "SupplerendeAdresse"],
     },
     Navn: {
       title: "Navn",
@@ -1621,7 +1622,7 @@ module.exports = {
         },
       },
       additionalProperties: false,
-      required: ["adresselinie1"],
+      required: ["adresselinie1", "adresselinie2"],
     },
     Statsborgerskab: {
       title: "Statsborgerskab",
