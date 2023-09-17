@@ -20,6 +20,10 @@ const server = http.createServer((req, res) => {
       res.writeHead(404);
     }
   }
+
+  if (reqUrl === "/CVR") {
+    res.write(fs.readFileSync("data/CVR.json"));
+  }
   res.end();
 });
 server.listen(9000);

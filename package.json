@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^8.0.2",
-    "json-schema-faker": "^0.5.3",
+    "json-schema-faker": "0.4.7",
     "randexp": "^0.5.3"
   }
 }
