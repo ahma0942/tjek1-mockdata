@@ -13,6 +13,7 @@ module.exports = {
           },
           CVRNummer: {
             type: "integer",
+            format: "cvr",
           },
           virksomhedStartdato: {
             type: "string",
