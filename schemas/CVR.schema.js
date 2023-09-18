@@ -135,7 +135,7 @@ module.exports = {
         },
         required: ["vaerdi", "registreringFra", "registreringsaktoer", "registreringTil", "virkningFra", "virkningsaktoer", "virkningTil", "metadata"],
       },
-      "e-mailadresse": {
+      "emailadresse": {
         type: "object",
         properties: {
           vaerdi: {
@@ -618,7 +618,7 @@ module.exports = {
       "virksomhed",
       "virksomhedsnavn",
       "telefonnummer",
-      "e-mailadresse",
+      "emailadresse",
       "virksomhedsform",
       "beliggenhedsadresse",
       "postadresse",
