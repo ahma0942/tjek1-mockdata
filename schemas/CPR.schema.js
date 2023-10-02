@@ -2,9 +2,9 @@ module.exports = {
   type: "object",
   properties: {
     Personer: {
-      type: "array",
       minItems: 10,
       maxItems: 20,
+      type: "array",
       items: {
         type: "object",
         properties: {
@@ -13,7 +13,6 @@ module.exports = {
             properties: {
               id: {
                 type: "string",
-                faker: "string.uuid",
               },
               cprfoedselsregistreringsstedskode: {
                 type: "string",
@@ -22,7 +21,7 @@ module.exports = {
                 type: "string",
               },
               supplerendeFoedselsregistreringssted: {
-                type: ["string"],
+                type: ["string", "null"],
               },
               foedselsdato: {
                 $ref: "#/definitions/foedselsdato",
@@ -35,7 +34,7 @@ module.exports = {
                 enum: ["kvinde", "mand"],
               },
               stilling: {
-                type: ["string"],
+                type: ["string", "null"],
               },
               statusdato: {
                 type: "string",
@@ -83,6 +82,90 @@ module.exports = {
                   required: ["Navn"],
                 },
               },
+              Statsborgerskaber: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Statsborgerskab: {
+                      $ref: "#/definitions/Statsborgerskab",
+                    },
+                  },
+                  required: ["Statsborgerskab"],
+                },
+              },
+              Civilstande: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Civilstand: {
+                      $ref: "#/definitions/Civilstand",
+                    },
+                  },
+                  required: ["Civilstand"],
+                },
+              },
+              Foraelderoplysninger: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Foraelderoplysning: {
+                      $ref: "#/definitions/Foraelderoplysning",
+                    },
+                  },
+                  required: ["Foraelderoplysning"],
+                },
+              },
+              Boern: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Barnoplysning: {
+                      $ref: "#/definitions/Barnoplysning",
+                    },
+                  },
+                  required: ["Barnoplysning"],
+                },
+              },
+              Foraeldermyndighedsoplysninger: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Foraeldermyndighedsoplysning: {
+                      $ref: "#/definitions/Foraeldermyndighedsoplysning",
+                    },
+                  },
+                  required: ["Foraeldermyndighedsoplysning"],
+                },
+              },
+              Vaergemaal: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Vaergemaal: {
+                      $ref: "#/definitions/Vaergemaal",
+                    },
+                  },
+                  required: ["Vaergemaal"],
+                },
+              },
+              Forsvindinger: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Forsvinding: {
+                      $ref: "#/definitions/Forsvinding",
+                    },
+                  },
+                  required: ["Forsvinding"],
+                },
+              },
               UdrejseIndrejser: {
                 type: "array",
                 items: {
@@ -95,6 +178,9 @@ module.exports = {
                   required: ["UdrejseIndrejse"],
                 },
               },
+              Kontaktadresse: {
+                $ref: "#/definitions/SimpelAdresseoplysning",
+              },
               Adresseoplysninger: {
                 type: "array",
                 items: {
@@ -106,6 +192,57 @@ module.exports = {
                   },
                   required: ["Adresseoplysninger"],
                 },
+              },
+              KommunaleForhold: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    KommunaleForhold: {
+                      $ref: "#/definitions/KommunaleForhold",
+                    },
+                  },
+                  required: ["KommunaleForhold"],
+                },
+              },
+              Valgoplysninger: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Valgoplysning: {
+                      $ref: "#/definitions/Valgoplysning",
+                    },
+                  },
+                  required: ["Valgoplysning"],
+                },
+              },
+              Folkekirke: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Folkekirke: {
+                      $ref: "#/definitions/Folkekirke",
+                    },
+                  },
+                  required: ["Folkekirke"],
+                },
+              },
+              Notater: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    Notat: {
+                      $ref: "#/definitions/Notat",
+                    },
+                  },
+                  required: ["Notat"],
+                },
+              },
+              Flyttepaabud: {
+                $ref: "#/definitions/Flyttepaabud",
               },
             },
             additionalProperties: false,
@@ -124,13 +261,27 @@ module.exports = {
               "Beskyttelser",
               "Personnumre",
               "Navne",
+              "Statsborgerskaber",
+              "Civilstande",
+              "Foraelderoplysninger",
+              "Boern",
+              "Foraeldermyndighedsoplysninger",
+              "Vaergemaal",
+              "Forsvindinger",
               "UdrejseIndrejser",
+              "Kontaktadresse",
               "Adresseoplysninger",
+              "KommunaleForhold",
+              "Valgoplysninger",
+              "Folkekirke",
+              "Notater",
+              "Flyttepaabud",
             ],
           },
         },
         required: ["Person"],
       },
+      required: ["Personer"],
     },
   },
   definitions: {
@@ -261,14 +412,6 @@ module.exports = {
         },
       },
       additionalProperties: false,
-      oneOf: [
-        {
-          required: ["Foraelder"],
-        },
-        {
-          required: ["ForaelderUdenCpr"],
-        },
-      ],
       required: ["Foraelder", "ForaelderUdenCpr", "ForaelderRolle", "virkningFra", "virkningFraUsikkerhedsmarkering"],
     },
     ForaelderoplysningMedReference: {
@@ -308,14 +451,6 @@ module.exports = {
         },
       },
       additionalProperties: false,
-      oneOf: [
-        {
-          required: ["Foraelder"],
-        },
-        {
-          required: ["ForaelderUdenCpr"],
-        },
-      ],
       required: ["Foraelder", "ForaelderUdenCpr", "ForaelderRolle", "virkningFra", "virkningFraUsikkerhedsmarkering"],
     },
     Foraeldermyndig: {
@@ -882,14 +1017,6 @@ module.exports = {
         },
       },
       additionalProperties: false,
-      anyOf: [
-        {
-          required: ["aegtefaelleNavn"],
-        },
-        {
-          required: ["aegtefaelleFoedselsdato"],
-        },
-      ],
       required: ["aegtefaelleNavn", "aegtefaelleNavnemarkering", "aegtefaelleFoedselsdato", "aegtefaelleFoedselsdatoUsikkerhedsmarkering"],
     },
     SimpelCivilstand: {
@@ -1151,14 +1278,6 @@ module.exports = {
         },
       },
       additionalProperties: false,
-      anyOf: [
-        {
-          required: ["cprLandekodeIndrejse"],
-        },
-        {
-          required: ["cprLandekodeUdrejse"],
-        },
-      ],
       required: [
         "cprLandekodeIndrejse",
         "cprLandIndrejse",
